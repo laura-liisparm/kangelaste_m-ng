@@ -193,8 +193,19 @@ function attackBoss() {
 //  - renderHeroes(heroes);
 //  - appendLog("Raviarstid ravisid tanke (+15 HP)");
 function healTanks() {
-  // TODO
+  let healed = 0;
+  heroes.forEach((hero) => {
+    if (hero.role === "tank") {
+      hero.hp += 15;
+      healed++;
+    }
+  });
+  renderHeroes(heroes);
+  appendLog(
+    "Raviarstid ravisid tanke (+15 HP igale tankile, kokku " + healed + ")"
+  );
 }
+// TODO
 
 // -------------------------------------------------------------
 // Soovi korral: automaatne algseis
