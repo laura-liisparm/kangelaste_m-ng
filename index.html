@@ -20,6 +20,16 @@
             Näita kõiki kangelasi
           </button>
 
+          <div class="row">
+            <label for="roleSelect"> Näita rolli järgi:</label>
+            <select id="roleSelect" onchange="filterByRole()">
+              <option value="all">Kõik rollid</option>
+              <option value="tank">Tank</option>
+              <option value="raviarst">Raviarst</option>
+              <option value="ründaja">Ründaja</option>
+            </select>
+          </div>
+
           <button onclick="boostTeam()">Lisa kõigile +10 elupunkti</button>
           <button onclick="showTeamPower()">Arvuta meeskonna kogujõud</button>
           <button onclick="resetTeam()">🔁 Taasta algne meeskond</button>
