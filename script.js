@@ -121,7 +121,20 @@ function showAllHeroes() {
 //      const filtered = heroes.filter(hero => hero.role === value);
 //      renderHeroes(filtered);
 //      appendLog("Filtreerime rolli järgi: " + value);
+function filterByRole() {
+  const value = roleSelect.value;
+  if (value === "all") {
+    showAllHeroes();
+    appendLog("Filtreerimine tühistatud – näitame kõiki kangelasi");
+    return;
+  }
 
+  const filtered = heroes.filter((hero) => hero.role === value);
+  renderHeroes(filtered);
+  appendLog(
+    "Filtreerime rolli järgi: " + value + " (kokku " + filtered.length + ")"
+  );
+}
 // boostTeam()
 //  - suurenda iga heroes elemendi hp väärtust 10 võrra (forEach)
 //  - seejärel renderHeroes(heroes)
