@@ -193,7 +193,23 @@ function resetTeam() {
 //  - kutsu renderBoss()
 //  - appendLog("Ründajad tegid bossile " + dmg + " kahju");
 function attackBoss() {
-  // TODO
+  const attackers = heroes.filter((h) => h.role === "ründaja");
+  const dmg = calcTeamPower(attackers);
+
+  if (dmg === 0) {
+    appendLog("Ründajat ei ole – keegi ei tee kahju.");
+    return;
+  }
+
+  boss.hp -= dmg;
+  if (boss.hp < 0) boss.hp = 0;
+
+  renderBoss();
+  appendLog("Ründajad tegid bossile " + dmg + " kahju");
+
+  if (boss.hp <= 0) {
+    appendLog("Boss on alistatud! 🎉");
+  }
 }
 
 // healTanks()
