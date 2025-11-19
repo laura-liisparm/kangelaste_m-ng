@@ -134,7 +134,7 @@ function filterByRole() {
   const value = roleSelect.value;
   if (value === "all") {
     showAllHeroes();
-    appendLog("Filtreerimine tühistatud – näitame kõiki kangelasi");
+    appendLog("Filtreerime rolli järgi: " + value);
     return;
   }
 
@@ -172,7 +172,7 @@ function calcTeamPower(list) {
 function showTeamPower() {
   const power = calcTeamPower(heroes);
   teamPowerEl.textContent = power;
-  appendLog("Meeskonna kogujõud: " + power);
+  appendLog("Jõud meeskonnas: " + power);
 }
 
 // resetTeam()
