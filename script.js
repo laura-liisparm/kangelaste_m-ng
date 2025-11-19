@@ -160,7 +160,9 @@ function calcTeamPower(list) {
 //  - kuva teamPowerEl elemendis
 //  - appendLog("Meeskonna kogujõud: " + power);
 function showTeamPower() {
-  // TODO
+  const power = calcTeamPower(heroes);
+  teamPowerEl.textContent = power;
+  appendLog("Meeskonna kogujõud: " + power);
 }
 
 // resetTeam()
