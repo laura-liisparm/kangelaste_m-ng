@@ -99,7 +99,16 @@ function renderHeroes(list) {
 //  - sea  bossBarInner.style.width = Math.max(0, Math.min(100, percent)) + "%";
 //  - kui boss.hp <= 0 → võid lisada logisse „Boss on alistatud!”
 function renderBoss() {
-  // TODO
+  if (boss.hp < 0) boss.hp = 0;
+  bossNameEl.textContent = boss.name;
+  bossHpEl.textContent = "HP: " + boss.hp;
+
+  const percent = (boss.hp / boss.maxHp) * 100;
+  bossBarInner.style.width = Math.max(0, Math.min(100, percent)) + "%";
+
+  if (boss.hp <= 0) {
+    appendLog("Boss on alistatud! 🎉");
+  }
 }
 
 // showAllHeroes()
