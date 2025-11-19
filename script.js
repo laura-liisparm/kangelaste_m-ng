@@ -183,7 +183,13 @@ function showTeamPower() {
 //  - renderBoss();
 //  - appendLog("Taastasime algse meeskonna ja bossi");
 function resetTeam() {
-  // TODO
+  heroes = originalHeroes.map((h) => ({ ...h }));
+  boss = { ...originalBoss };
+  teamPowerEl.textContent = "0";
+  logEl.textContent = "";
+  renderHeroes(heroes);
+  renderBoss();
+  appendLog("Kasutaja taastas algusesse");
 }
 
 // attackBoss()
@@ -197,7 +203,7 @@ function attackBoss() {
   const dmg = calcTeamPower(attackers);
 
   if (dmg === 0) {
-    appendLog("Ründajat ei ole – keegi ei tee kahju.");
+    appendLog("Ründajat ei ole – keegi ei teinud kahju.");
     return;
   }
 
@@ -208,7 +214,7 @@ function attackBoss() {
   appendLog("Ründajad tegid bossile " + dmg + " kahju");
 
   if (boss.hp <= 0) {
-    appendLog("Boss on alistatud! 🎉");
+    appendLog("Boss sai surma! X-X");
   }
 }
 
@@ -227,7 +233,7 @@ function healTanks() {
   });
   renderHeroes(heroes);
   appendLog(
-    "Raviarstid ravisid tanke (+15 HP igale tankile, kokku " + healed + ")"
+    "Raviarstid ravivivad tanke (+15 HP igale tankile, kokku " + healed + ")"
   );
 }
 // TODO
