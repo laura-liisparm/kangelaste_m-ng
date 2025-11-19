@@ -40,7 +40,8 @@ const bossBarInner = document.getElementById("bossBarInner");
 //  - lisa logEl lõppu uus rida (message + "\n")
 //  - võid pärast lisamist kerida logi alla: logEl.scrollTop = logEl.scrollHeight;
 function appendLog(message) {
-  // TODO
+  logEl.textContent += message + "\n";
+  logEl.scrollTop = logEl.scrollHeight;
 }
 
 // renderHeroes(list)
@@ -56,7 +57,39 @@ function appendLog(message) {
 //   card.appendChild(statsEl);
 //  - heroCountEl.textContent = list.length;
 function renderHeroes(list) {
-  // TODO
+  heroListEl.innerHTML = "";
+  list.forEach((hero) => {
+    const card = document.createElement("div");
+    card.className = "hero-card";
+
+    const nameEl = document.createElement("div");
+    nameEl.className = "hero-name";
+    nameEl.textContent = hero.name;
+
+    const roleEl = document.createElement("div");
+    roleEl.className = "hero-role";
+    roleEl.textContent = "Roll: " + hero.role;
+
+    const statsEl = document.createElement("div");
+    statsEl.className = "hero-stats";
+
+    const hpSpan = document.createElement("span");
+    hpSpan.textContent = "HP: " + hero.hp;
+
+    const powerSpan = document.createElement("span");
+    powerSpan.textContent = "Power: " + hero.power;
+
+    statsEl.appendChild(hpSpan);
+    statsEl.appendChild(powerSpan);
+
+    card.appendChild(nameEl);
+    card.appendChild(roleEl);
+    card.appendChild(statsEl);
+
+    heroListEl.appendChild(card);
+  });
+
+  heroCountEl.textContent = list.length;
 }
 
 // renderBoss()
@@ -75,7 +108,10 @@ function renderBoss() {
 //  - renderBoss()
 //  - appendLog("Kuvame kõik kangelased")
 function showAllHeroes() {
-  // TODO
+  heroes = originalHeroes.map((h) => ({ ...h }));
+  renderHeroes(heroes);
+  renderBoss();
+  appendLog("Kuvame kõik kangelased");
 }
 
 // filterByRole()
