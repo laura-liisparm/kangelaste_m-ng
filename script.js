@@ -107,7 +107,7 @@ function renderBoss() {
   bossBarInner.style.width = Math.max(0, Math.min(100, percent)) + "%";
 
   if (boss.hp <= 0) {
-    appendLog("Boss on alistatud! 🎉");
+    appendLog("Boss on alistatud! ");
   }
 }
 
