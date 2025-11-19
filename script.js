@@ -139,8 +139,13 @@ function filterByRole() {
 //  - suurenda iga heroes elemendi hp väärtust 10 võrra (forEach)
 //  - seejärel renderHeroes(heroes)
 //  - appendLog("Lisatud +10 HP kõigile kangelastele");
+
 function boostTeam() {
-  // TODO
+  heroes.forEach((hero) => {
+    hero.hp += 10;
+  });
+  renderHeroes(heroes);
+  appendLog("Lisatud +10 HP kõigile kangelastele");
 }
 
 // calcTeamPower(list)
