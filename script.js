@@ -161,7 +161,8 @@ function boostTeam() {
 //  - kasuta reduce, et liita kokku list[] power väärtused
 //  - kui list on tühi, tagasta 0
 function calcTeamPower(list) {
-  // TODO
+  if (!list.length) return 0;
+  return list.reduce((sum, hero) => sum + hero.power, 0);
 }
 
 // showTeamPower()
